@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="title">IIM Counseling Booking Platform</h1>
+
+  @if (!selectedCollege) {
+    <h2>Select a College:</h2>
+    <div class="card-grid">
+      @for (college of colleges; track college) {
+        <div class="card" (click)="selectCollege(college)">{{ college }}</div>
+      }
+    </div>
+  }
+
+  @if (selectedCollege && !selectedCourse) {
+    <h2>Courses in {{ selectedCollege }}:</h2>
+    <div class="card-grid">
+      @for (course of courses; track course) {
+        <div class="card" (click)="selectCourse(course)">{{ course }}</div>
+      }
+    </div>
+  }
+
+  @if (selectedCollege && selectedCourse) {
+    <h2>Counselors for {{ selectedCourse }} at {{ selectedCollege }}:</h2>
+    <div class="counselor-grid">
+      @for (counselor of counselors; track counselor) {
+        <div class="counselor-card">
+          <img [src]="counselor.photo" class="avatar" />
+          <h3>{{ counselor.name }}</h3>
+          <p>Email: {{ counselor.email }}</p>
+          <p>Score: {{ counselor.score }}</p>
+          <p>Experience: {{ counselor.experience }}</p>
+          <button>Schedule a Call</button>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('./app/assets/BackgroundImage.png') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+  }
